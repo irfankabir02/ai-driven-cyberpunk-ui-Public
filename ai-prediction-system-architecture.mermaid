@@ -1,0 +1,55 @@
+flowchart TD
+    subgraph Data_Layer
+        DS[Data Sources] --> DP[Data Preprocessing]
+        DP --> FE[Feature Engineering]
+        FE --> DV[Data Validation]
+    end
+
+    subgraph Model_Layer
+        DV --> MF[Model Factory]
+        MF --> |Time Series| TS[Forecasting Models]
+        MF --> |Classification| CP[Classification Models]
+        MF --> |Regression| RP[Regression Models]
+        
+        TS --> |ARIMA| TSA[ARIMA]
+        TS --> |Prophet| TSP[Prophet]
+        TS --> |LSTM| TSL[LSTM]
+        
+        CP --> |XGBoost| CPX[XGBoost]
+        CP --> |Random Forest| CPR[Random Forest]
+        
+        RP --> |Linear| RPL[Linear]
+        RP --> |XGBoost| RPX[XGBoost]
+    end
+    
+    subgraph Explainability_Layer
+        TSA & TSP & TSL & CPX & CPR & RPL & RPX --> |Global| SHAP[SHAP]
+        TSA & TSP & TSL & CPX & CPR & RPL & RPX --> |Local| LIME[LIME]
+        SHAP --> |Force Plot| SFP[Force Plot]
+        SHAP --> |Summary Plot| SSP[Summary Plot]
+        SHAP --> |Waterfall| SWP[Waterfall]
+        LIME --> |Feature Importance| LFI[Feature Importance]
+    end
+    
+    subgraph Monitoring_Layer
+        TSA & TSP & TSL & CPX & CPR & RPL & RPX --> MD[Model Drift]
+        MD --> |KS Test| KS[Kolmogorov-Smirnov]
+        MD --> |PSI| PSI[Population Stability Index]
+        MD --> |KL| KL[KL Divergence]
+        KS & PSI & KL --> ADT[Anomaly Detection]
+        ADT --> |Threshold| AT[Alert Trigger]
+        AT --> |Auto-Retrain| AR[Auto-Retrain]
+    end
+    
+    subgraph UI_Layer
+        SFP & SSP & SWP & LFI --> EXP[Explainability Panel]
+        AR --> MMP[Model Monitoring Panel]
+        TSA & TSP & TSL & CPX & CPR & RPL & RPX --> PP[Prediction Panel]
+        EXP & MMP & PP --> Dashboard[Interactive Dashboard]
+    end
+    
+    Data_Layer --> Model_Layer
+    Model_Layer --> Explainability_Layer
+    Model_Layer --> Monitoring_Layer
+    Explainability_Layer --> UI_Layer
+    Monitoring_Layer --> UI_Layer

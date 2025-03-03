@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "AI Automation Workflow Configuration",
+  "description": "Schema for configuring AI-powered automation workflows",
+  "type": "object",
+  "required": ["workflowName", "version", "dataSources", "processingSteps", "outputs"],
+  "properties": {
+    "workflowName": {
+      "type": "string",
+      "description": "Unique identifier for the workflow"
+    },
+    "version": {
+      "type": "string",
+      "description": "Version of the workflow configuration"
+    },
+    "schedule": {
+      "type": "string",
+      "description": "Cron expression for workflow scheduling"
+    },
+    "dataSources": {
+      "type": "array",
+      "description": "List of data sources used in the workflow",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "connectionDetails"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the data source"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["api", "database", "webScraping", "fileSystem", "streamingSource"],
+            "description": "Type of data source"
+          },
+          "connectionDetails": {
+            "type": "object",
+            "description": "Connection details specific to the data source type"
+          },
+          "authentication": {
+            "type": "object",
+            "description": "Authentication parameters for the data source"
+          },
+          "extractionParams": {
+            "type": "object",
+            "description": "Parameters for data extraction process"
+          },
+          "rateLimit": {
+            "type": "object",
+            "description": "Rate limiting configuration for the data source"
+          }
+        }
+      }
+    },
+    "processingSteps": {
+      "type": "array",
+      "description": "Sequential steps for data processing pipeline",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "config"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the processing step"
+          },
+          "name": {
+            "type": "string",
+            "description": "Human-readable name for the step"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["extraction", "transformation", "aiProcessing", "validation", "enrichment", "aggregation"],
+            "description": "Type of processing step"
+          },
+          "dependencies": {
+            "type": "array",
+            "description": "IDs of steps that must complete before this step can begin",
+            "items": {
+              "type": "string"
+            }
+          },
+          "config": {
+            "type": "object",
+            "description": "Configuration specific to the step type"
+          },
+          "retryPolicy": {
+            "type": "object",
+            "description": "Configuration for retry behavior on failure",
+            "properties": {
+              "maxRetries": {
+                "type": "integer",
+                "description": "Maximum number of retry attempts"
+              },
+              "backoffStrategy": {
+                "type": "string",
+                "enum": ["fixed", "exponential", "linear"],
+                "description": "Strategy for timing between retries"
+              }
+            }
+          },
+          "timeoutSeconds": {
+            "type": "integer",
+            "description": "Maximum execution time in seconds before timeout"
+          }
+        }
+      }
+    },
+    "aiModels": {
+      "type": "array",
+      "description": "AI models used in the workflow",
+      "items": {
+        "type": "object",
+        "required": ["id", "type", "endpoint"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the AI model"
+          },
+          "
