@@ -1,0 +1,28 @@
+#!/bin/bash
+
+echo "🚀 Starting Deployment..."
+
+# Build the project
+npm run build
+
+# Deploy to GitHub Pages
+echo "📂 Deploying to GitHub Pages..."
+git add .
+git commit -m "Deploying latest build"
+git push origin main
+
+# Deploy to Vercel (if configured)
+if command -v vercel &> /dev/null
+then
+    echo "🌍 Deploying to Vercel..."
+    vercel --prod
+fi
+
+# Deploy to Netlify (if configured)
+if command -v netlify &> /dev/null
+then
+    echo "🌐 Deploying to Netlify..."
+    netlify deploy --prod
+fi
+
+echo "🎉 Deployment Complete!"
