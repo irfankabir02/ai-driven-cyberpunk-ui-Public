@@ -1,0 +1,77 @@
+# Claude Prompt Framework for Optimized ChatGPT Workflow Integration
+
+## Objective:
+Create Claude-generated artifacts (e.g., diagrams, dashboards, structured outputs) that enhance ChatGPT’s execution workflow by making problem-solving more efficient, structured, and actionable.
+
+---
+
+## General Prompt Structure:
+**“Claude, I need an enhanced artifact that maximizes ChatGPT’s ability to process, refine, and execute tasks efficiently. Here’s the context and the expected format:”**
+
+### Key Components:
+
+1. **Contextual Background**
+   - Clearly define the problem, workflow, or analysis needed.
+   - Specify **why ChatGPT needs this artifact** (e.g., to enhance structured execution, debugging, optimization).
+   - Provide **relevant constraints** (e.g., computational limits, structured breakdowns).
+
+2. **Desired Output Format (Artifact Type)**
+   - **Diagram:** Process flowcharts, system architectures, dependency mappings.
+   - **Dashboard/Table:** Structured insights, analytics breakdown, component comparisons.
+   - **Framework/Checklist:** Step-by-step execution plans, structured debugging guides.
+   - **Visual Summaries:** Conceptual explanations for complex technical topics.
+
+3. **Optimization Parameters**
+   - Ensure **modular structure** for ease of refinement by ChatGPT.
+   - Include **data-driven components** where applicable (tables, KPIs, benchmarks).
+   - **Highlight dependencies** and bottlenecks in execution workflows.
+
+4. **ChatGPT Integration Strategy**
+   - Define **how ChatGPT should use the artifact** (e.g., extract sub-components, refine execution, perform iterative improvements).
+   - If applicable, **align with specific ChatGPT capabilities** (e.g., code generation, process optimization, multi-step execution).
+
+---
+
+## Example Prompts:
+
+### **1. Debugging Workflow Optimization**
+**“Claude, generate a structured flowchart that outlines the debugging workflow for a slow Python script. It should include:**
+   - **Root cause analysis paths** (e.g., I/O bottlenecks, inefficient loops, memory overuse).
+   - **Decision points** on optimization approaches (vectorization, multiprocessing, caching).
+   - **Feedback loops** that allow iterative refinement in ChatGPT.”**
+
+👉 *ChatGPT will use this to generate optimized debugging scripts and test different performance improvements efficiently.*  
+
+---
+
+### **2. AI Execution Strategy for a Machine Learning Model**
+**“Claude, create a performance optimization dashboard for training a deep learning model under hardware constraints. Include:**
+   - **Training bottleneck identification (CPU, RAM, GPU, disk I/O).**
+   - **Recommended strategies based on available resources (gradient checkpointing, mixed precision, distributed training).**
+   - **Decision-tree flowchart** for selecting the best optimization method.”**
+
+👉 *ChatGPT will use this to refine and implement system-aware execution plans dynamically.*  
+
+---
+
+### **3. Step-by-Step Task Breakdown for a Complex Workflow**
+**“Claude, generate a structured execution framework for a multi-step ETL data pipeline. The output should include:**
+   - **Stages of ETL (Extract, Transform, Load) with key dependencies.**
+   - **Potential failure points and resolution strategies.**
+   - **Performance tuning recommendations at each step.”**
+
+👉 *ChatGPT will use this to implement optimized ETL strategies and improve automation scripts.*  
+
+---
+
+## Final Optimization Rule:
+💡 **Every Claude-generated artifact should be designed for modular use in ChatGPT**, allowing for:
+✅ **Step-by-step refinement**
+✅ **Integration into structured execution workflows**
+✅ **Automated enhancement of problem-solving**
+
+---
+
+## Next Steps:
+1. Upload your context/scenario file.
+2. I will refine this prompt to align perfectly with your specific requirements.
